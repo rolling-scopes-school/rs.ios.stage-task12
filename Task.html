@@ -1,0 +1,671 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Task 12</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="73bf2a49-5f83-44b4-b62d-7496a42e6c5a" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1459257831348-f0cdd359235f?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 32.02%"/><h1 class="page-title">Task 12</h1></header><div class="page-body"><p id="9c16abde-6f7c-465a-b286-102d64a69fc2" class="">Привет!
+В этой задаче вам будет необходимо реализовать приложение для ведения финансов. Очень простое, без всяких наворотов: оно должен уметь хранить историю транзакций в различных кошельках.</p><p id="b6761ccc-41f5-4101-b8c0-832df02face0" class="">Каждая транзакция имеет некоторые полезные данные: </p><ul id="3aae3828-2883-4c2e-8fe1-4323b49e460b" class="bulleted-list"><li style="list-style-type:disc">дата создания</li></ul><ul id="04c2a545-aafc-4547-acd9-395f6f53fef0" class="bulleted-list"><li style="list-style-type:disc">величина транзакции</li></ul><ul id="872940f2-f171-41b9-87b3-f3a1b8430f52" class="bulleted-list"><li style="list-style-type:disc">название</li></ul><ul id="b470ca76-e7fd-4f2e-8b8b-42b26ff5c464" class="bulleted-list"><li style="list-style-type:disc">заметка</li></ul><p id="8bf1a1f0-2027-4dfb-9171-2d02400be2d2" class="">Для этих данных определены следующие правила:</p><ul id="20118cc0-23fa-4119-b70d-7e2588fc1c9d" class="bulleted-list"><li style="list-style-type:disc">величина транзакции должна быть ненулевой величиной; если пользователь пытается сохранить изменения с нулевой величиной транзакции, должно показываться предупреждение в виде модального окна</li></ul><ul id="531c4017-152a-4d33-b33e-64a770830810" class="bulleted-list"><li style="list-style-type:disc">длина названия транзакции не должна превышать 20 символов и не должна быть нулевой</li></ul><ul id="07af85ef-35f0-46ee-8b06-94ea5444320b" class="bulleted-list"><li style="list-style-type:disc">длина заметки не должна превышать 250 символов; заметка может быть пустой</li></ul><p id="c2fc014b-a0d5-473b-b79b-a3e8efb542dd" class="">Транзакции находятся в кошельке. К кошельку привязаны следующие данные:</p><ul id="327f92cb-809d-4ea4-95cb-e3e8983b25ab" class="bulleted-list"><li style="list-style-type:disc">название</li></ul><ul id="6e52404f-79a9-41bb-95e7-7abd382e0ce4" class="bulleted-list"><li style="list-style-type:disc">валюта</li></ul><ul id="d51b002a-61bb-41c1-a806-0518f06b94bf" class="bulleted-list"><li style="list-style-type:disc">цветовая тема</li></ul><p id="37049887-2006-4dd0-985f-0a1756d6f661" class="">Для этих данных определены следующие правила:</p><ul id="0b78ef71-57b8-4860-b1b1-0e2f4447ea2c" class="bulleted-list"><li style="list-style-type:disc">длина названия кошелька не должна превышать 20 символов и не должна быть нулевой; при создании нового кошелька должно проверяться совпадение названия нового кошелька с уже существующими, в случае совпадения необходимо вывести предупреждение в виде модального окна</li></ul><hr id="0bedb09b-448d-48a1-a7bd-53e7162ef915"/><p id="3cdc8668-3876-446c-94ec-c839aa168f09" class="">Для всех экранов, на которых предполагается редактирование\создание чего-либо, предусматривается следующая логика: когда пользователь нажимает на кнопку возвращения на предыдущий экран, должна происходить проверка на текущие изменения. </p><ul id="12ac3b10-f713-4796-a061-899df9eaa8c1" class="bulleted-list"><li style="list-style-type:disc">Если изменения были внесены, тогда должно появляться модальное окно, запрашивающее сохранение изменений либо их отмену. </li></ul><ul id="97b4918a-362d-4138-8729-4531c42a2a3e" class="bulleted-list"><li style="list-style-type:disc">Если пользователь возвращается с экрана создания чего-либо, тогда должно появляться модальное окно, запрашивающее сохранение нового элемента либо его удаление.</li></ul><hr id="b50e2447-0152-4c47-b96a-fa6aac0db212"/><p id="8650cb14-9128-46b6-9542-ccd2608bd9d8" class="">Если в системе отсутствуют созданные кошельки, тогда отображается соответствующее сообщение.</p><p id="7cb9b306-7da4-480a-94eb-50ad990c9344" class="">При запуске приложения, когда присутствуют сохранённые кошельки, должен открываться экран с последним открытым кошельком. Если в последний раз перед закрытием приложения был открыт список с кошельками, тогда при следующем запуске открывается список с кошельками.</p><hr id="ffbd1dff-2a75-4ef6-8e17-23354c64f583"/><h2 id="92a0ebc7-800a-4f28-8be1-e9823efe76ce" class="">Замечания</h2><ul id="fafe7d77-80c2-4fe8-ae37-95d8a0c477f9" class="bulleted-list"><li style="list-style-type:disc">Дизайн модального окна и сообщения для контекста вам необходимо придумать самим 😉</li></ul><ul id="357a51d9-af4a-4b60-8214-3fb29cb8f7c2" class="bulleted-list"><li style="list-style-type:disc">В фигме для каждой транзакции предусмотрена иконка, показывающая тип транзакции. Дизайн этой функции также отдаётся вам </li></ul><ul id="3c35984b-9422-4189-aa90-c7861bf52e3e" class="bulleted-list"><li style="list-style-type:disc">Реализация анимаций появления\исчезновения отображений и изменения их состояний также остаётся на ваше усмотрение</li></ul><ul id="274ba8f3-9bef-46f3-9fe1-3ceeb6587d88" class="bulleted-list"><li style="list-style-type:disc">Список кодов для валют берётся из массива <code>Locale.isoCurrencyCodes</code>. С каждым кодом ассоциируется название валюты. Смена валюты в кошельке применяется на все его транзакции (уже существующие и будущие)<figure id="39ec199a-3e98-49ba-b5a1-5b153502d511"><a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">List of ISO 3166 country codes - Wikipedia</div><div class="bookmark-description">The sortable table below contains the three sets of ISO 3166-1 country codes for each of its 249 countries, links to the ISO 3166-2 country subdivision codes, and the Internet country code top-level domains (ccTLD) which are based on the ISO 3166-1 alpha-2 standard with the few exceptions noted.</div></div><div class="bookmark-href"><img src="https://en.wikipedia.org/static/favicon/wikipedia.ico" class="icon bookmark-icon"/>https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes</div></div></a></figure></li></ul><ul id="40e2f26e-55da-424c-80e9-dc1ccb9b5c21" class="bulleted-list"><li style="list-style-type:disc">С цветовыми темами следующая история: изначально, когда в системе нет ни одного кошелька, по умолчанию ставится случайная тема (каждый раз при запуске приложения или единожды - на ваше усмотрение). Далее, когда создаётся кошелёк, к нему применяется выбранная при его создании цветовая тема. И она сохраняется между экранами до тех пор, пока пользователь не зайдёт в новый кошелёк: когда он заходит в новый кошелёк, применяется цветовая тема этого кошелька. </li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="5dca3c02-edc3-4c99-b7b1-6c699914ebf6"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%">Иконки<figure id="200e13de-0646-4865-87e6-b9acf0bb8f52"><div class="source"><a href="Task%2012%2073bf2a495f8344b4b62d7496a42e6c5a/icons.zip">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a8a09e9d-b39e-44eb-84ea-f3907daf55b5/icons.zip</a></div></figure></div></figure><h2 id="559d7ebc-fff0-47fb-8536-9a90347ae50c" class="">Требования</h2><ul id="082f49c2-4e75-4401-af7a-93f29ea305ff" class="bulleted-list"><li style="list-style-type:disc">Минимальная версия: iOS 13</li></ul><ul id="a89e6dc2-a4bf-4235-991d-ef8aaf814527" class="bulleted-list"><li style="list-style-type:disc">Для постоянного хранения данных необходимо использовать только CoreData</li></ul><ul id="84f18cd8-18d5-496c-b9ff-ef1da747f75a" class="bulleted-list"><li style="list-style-type:disc">Storyboard запрещены</li></ul><ul id="23621c11-1e5d-43ae-a985-43205a8ef377" class="bulleted-list"><li style="list-style-type:disc">Использование шаблона MVC* не поощряется
+* (это касается и Massive View Controller, и Model View Controller)</li></ul><ul id="d3c3bffe-1ac5-4d77-85ca-23291255f88a" class="bulleted-list"><li style="list-style-type:disc">Описаны unit-тесты</li></ul><ul id="44b95dc9-1667-4015-b3ea-552d4cadeb7f" class="bulleted-list"><li style="list-style-type:disc">Интерфейс рисуется в UIKit</li></ul><ul id="ec8cb468-3d01-4126-bacf-17743e56fe62" class="bulleted-list"><li style="list-style-type:disc">SPM &amp; Cocoapods разрешены</li></ul><figure id="bdd18ba4-1742-4932-8c58-165af80f217e" class="image"><a href="https://media.giphy.com/media/MCZ39lz83o5lC/giphy.gif"><img src="https://media.giphy.com/media/MCZ39lz83o5lC/giphy.gif"/></a></figure><h2 id="1358acdc-d85a-4ecd-a722-ad418e841703" class="">Чек-лист для проверки</h2><ul id="2363249b-61b4-403a-bcbd-abcd1acaf083" class="bulleted-list"><li style="list-style-type:disc">Вёрстка норм</li></ul><ul id="ab0b242b-d39b-4130-bc0b-9156af8f9e83" class="bulleted-list"><li style="list-style-type:disc">Аргументировано использование зависимостей в проекте</li></ul><ul id="beefef8a-2aad-44a7-bcbb-f2516f5396b6" class="bulleted-list"><li style="list-style-type:disc">Отсутствуют утечек памяти</li></ul><ul id="65c5ff81-afe9-404e-9e79-86d22ccb9e05" class="bulleted-list"><li style="list-style-type:disc">Unit-тесты покрывают минимум 50% кода</li></ul><ul id="9ebd5626-d398-48da-b74e-531be61bc441" class="bulleted-list"><li style="list-style-type:disc">Корректная работа с CoreData в многопоточке</li></ul></div></article></body></html>
